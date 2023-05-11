@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Minha Página</title>
+	<link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="script.js"></script>
+</head>
+<body style="background-color: red;">
+	<h1 style="color: black;">Cuzinho da próxima vez que a gente fazer as coisas ?rsrsrsrsrsr</h1>
+	<div>
+		<button id="sim" onclick="redirecionar()">Sim</button>
+		<button id="nao" onclick="mover()">Não</button>
+	</div>
+</body>
+</html>
+button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#nao {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#sim {
+  background-color: #ffffff;
+  color: #000000;
+}
+const nao = document.getElementById('nao');
+let naoPosicaoX = 0;
+let naoPosicaoY = 0;
+
+nao.addEventListener('click', () => {
+  nao.style.transform = `translate(${naoPosicaoX}px, ${naoPosicaoY}px)`;
+  naoPosicaoX += getRandomNumber();
+  naoPosicaoY += getRandomNumber();
+});
+
+const sim = document.getElementById('sim');
+
+sim.addEventListener('click', () => {
+  window.location.href = 'pagina-de-presente.html';
+});
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 20) - 10;
+}
